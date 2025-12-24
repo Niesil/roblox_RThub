@@ -1,4 +1,4 @@
-local GUI = require(game.ReplicatedStorage.ModuleScript)
+local GUI = require(loadstring(game.HttpService:GetAsync('https://raw.githubusercontent.com/Niesil/roblox_RThub/main/Gui.lua')))
 local UIS = game:GetService('UserInputService')
 
 local function randomName()
