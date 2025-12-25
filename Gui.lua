@@ -42,7 +42,7 @@ function API.CreateWindow(Name:string,Size:UDim2?,WelcomeText:string?)
 	ScreenGUI.Name = tostring(math.round(Random.new():NextNumber()*100000000))
 	ScreenGUI.IgnoreGuiInset = true
 	ScreenGUI.ResetOnSpawn = false
-	ScreenGUI.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+	ScreenGUI.Parent = game:GetService('CoreGui')
 
 	local Window = Instance.new('Frame')
 	Window.Size = Size or UDim2.new(0, 550, 0, 450)
