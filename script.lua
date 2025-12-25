@@ -20,4 +20,6 @@ return function()
 	local misc = window.addCategory(randomName(),'Misc')
 	
 	local settings = window.addCategory(randomName(),'Settings')
+
+	print('Loaded!')
 end
