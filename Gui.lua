@@ -42,7 +42,7 @@ function API.CreateWindow(Name:string,Size:UDim2?,WelcomeText:string?)
 	ScreenGUI.Name = tostring(math.round(Random.new():NextNumber()*100000000))
 	ScreenGUI.IgnoreGuiInset = true
 	ScreenGUI.ResetOnSpawn = false
-	ScreenGUI.Parent = game:GetService('CoreGui')
+	ScreenGUI.Parent = game.Players.LocalPlayer:WaitForChild('PlayerGui') --game:GetService('CoreGui')
 
 	local Window = Instance.new('Frame')
 	Window.Size = Size or UDim2.new(0, 550, 0, 450)
@@ -112,7 +112,7 @@ function API.CreateWindow(Name:string,Size:UDim2?,WelcomeText:string?)
 	ContentFrame.BackgroundTransparency = 1
 	ContentFrame.Size = UDim2.new(1,-180,1,-50)
 	ContentFrame.Position = UDim2.new(0,175,0,45)
-	ContentFrame.ScrollBarThickness = 1
+	ContentFrame.ScrollBarThickness = 0
 	ContentFrame.AutomaticCanvasSize = Enum.AutomaticSize.Y
 	local ContentList = Instance.new("UIListLayout")
 	ContentList.Padding = UDim.new(0,12)
@@ -330,17 +330,18 @@ function API.CreateWindow(Name:string,Size:UDim2?,WelcomeText:string?)
 			label.TextXAlignment = Enum.TextXAlignment.Left
 			label.Parent = sliderFrame
 
-			local valueLabel = Instance.new('TextLabel')
-			valueLabel.Name = "Value"
-			valueLabel.Text = tostring(min)
-			valueLabel.TextColor3 = Colors.text
-			valueLabel.TextSize = 12
-			valueLabel.Font = font
-			valueLabel.Size = UDim2.new(1, 0, 0, 10)
-			valueLabel.Position = UDim2.new(0, 0, 0, 0)
-			valueLabel.BackgroundTransparency = 1
-			valueLabel.TextXAlignment = Enum.TextXAlignment.Right
-			valueLabel.Parent = sliderFrame
+			local valueBox = Instance.new('TextBox')
+			valueBox.Name = "Value"
+			valueBox.Text = tostring(min)
+			valueBox.TextColor3 = Colors.text
+			valueBox.TextSize = 12
+			valueBox.Font = font
+			valueBox.ClearTextOnFocus = false
+			valueBox.Size = UDim2.new(1, 0, 0, 10)
+			valueBox.Position = UDim2.new(0, 0, 0, 0)
+			valueBox.BackgroundTransparency = 1
+			valueBox.TextXAlignment = Enum.TextXAlignment.Right
+			valueBox.Parent = sliderFrame
 
 			local sliderBackground = Instance.new('Frame')
 			sliderBackground.Name = "Background"
@@ -378,7 +379,7 @@ function API.CreateWindow(Name:string,Size:UDim2?,WelcomeText:string?)
 				value = math.floor(value)
 
 				sliderFill.Size = UDim2.new(relativeX, 0, 1, 0)
-				valueLabel.Text = tostring(value)
+				valueBox.Text = tostring(value)
 
 				if Callback then
 					Callback(value)
@@ -403,7 +404,23 @@ function API.CreateWindow(Name:string,Size:UDim2?,WelcomeText:string?)
 					updateSlider(input)
 				end
 			end)
-
+			
+			valueBox.FocusLost:Connect(function(enterPressed, inputObject)
+				if enterPressed then
+					local number = tonumber(valueBox.Text)
+					if number then
+						local value = math.clamp(number,min,max)
+						valueBox.Text = tostring(value)
+						
+						local relativeX = (value - min) / (max - min)
+						sliderFill.Size = UDim2.new(math.clamp(relativeX, 0, 1), 0, 1, 0)
+						if Callback then
+							Callback(tonumber(valueBox.Text))
+						end
+					end
+				end
+			end)
+			
 			return addElement(sliderFrame)
 		end
 
@@ -697,8 +714,9 @@ function API.CreateWindow(Name:string,Size:UDim2?,WelcomeText:string?)
 		return categoryMethods
 	end
 
-	function WindowFunctions:toggle()
+	function WindowFunctions:Toggle()
 		Window.Visible = not Window.Visible
+		return Window.Visible
 	end
 
 	function WindowFunctions:Destroy()
@@ -1015,6 +1033,7 @@ function API.CreateEmptyWindow(Name:string,Size:UDim2?,WelcomeText:string?)
 		dropDownFrame.BackgroundTransparency = 1
 		dropDownFrame.ClipsDescendants = true
 
+		-- Заголовок
 		local label = Instance.new('TextLabel')
 		label.Name = "Label"
 		label.Text = Text
@@ -1026,6 +1045,7 @@ function API.CreateEmptyWindow(Name:string,Size:UDim2?,WelcomeText:string?)
 		label.TextXAlignment = Enum.TextXAlignment.Left
 		label.Parent = dropDownFrame
 
+		-- Основная кнопка выпадающего списка
 		local dropDownButton = Instance.new('TextButton')
 		dropDownButton.Name = "Button"
 		dropDownButton.Text = "Выберите..."
@@ -1039,6 +1059,7 @@ function API.CreateEmptyWindow(Name:string,Size:UDim2?,WelcomeText:string?)
 		dropDownButton.MouseEnter:Connect(function() Tweens.Select(dropDownButton,true) end)
 		dropDownButton.MouseLeave:Connect(function() Tweens.Select(dropDownButton,false) end)
 
+		-- Добавляем стрелочку для отличия от обычной кнопки
 		local arrow = Instance.new('TextLabel')
 		arrow.Name = "Arrow"
 		arrow.Text = "▼"
@@ -1055,6 +1076,7 @@ function API.CreateEmptyWindow(Name:string,Size:UDim2?,WelcomeText:string?)
 		corner.CornerRadius = UDim.new(0, 6)
 		corner.Parent = dropDownButton
 
+		-- Фрейм для списка опций
 		local listFrame = Instance.new('Frame')
 		listFrame.Name = "ListFrame"
 		listFrame.Size = UDim2.new(1, 0, 0, 0)
@@ -1068,6 +1090,7 @@ function API.CreateEmptyWindow(Name:string,Size:UDim2?,WelcomeText:string?)
 		listCorner.CornerRadius = UDim.new(0, 6)
 		listCorner.Parent = listFrame
 
+		-- Прокручиваемый фрейм для опций
 		local scrollFrame = Instance.new('ScrollingFrame')
 		scrollFrame.Name = "ScrollFrame"
 		scrollFrame.Size = UDim2.new(1, 0, 1, 0)
@@ -1088,15 +1111,17 @@ function API.CreateEmptyWindow(Name:string,Size:UDim2?,WelcomeText:string?)
 
 		local isOpen = false
 		local selectedOption = ""
-		local ignoreNextOutsideClick = false
+		local ignoreNextOutsideClick = false -- Флаг для игнорирования клика
 
+		-- Функция для обновления высоты списка
 		local function updateListHeight()
 			if #Options == 0 then return end
 
-			local maxHeight = math.min(#Options * 30, 150)
+			local maxHeight = math.min(#Options * 30, 150) -- Максимальная высота 150, минимальная по количеству элементов
 			listFrame.Size = UDim2.new(1, 0, 0, maxHeight)
 		end
 
+		-- Функция для создания кнопок опций
 		local function createOptionButtons()
 			for _, option in pairs(Options) do
 				local optionButton = Instance.new('TextButton')
@@ -1114,6 +1139,7 @@ function API.CreateEmptyWindow(Name:string,Size:UDim2?,WelcomeText:string?)
 				optionCorner.Parent = optionButton
 
 				optionButton.MouseButton1Down:Connect(function()
+					-- Устанавливаем флаг, чтобы игнорировать следующий внешний клик
 					ignoreNextOutsideClick = true
 				end)
 
@@ -1139,10 +1165,12 @@ function API.CreateEmptyWindow(Name:string,Size:UDim2?,WelcomeText:string?)
 				optionButton.Parent = scrollFrame
 			end
 		end
-    
+
+		-- Создаем кнопки опций
 		createOptionButtons()
 		updateListHeight()
 
+		-- Обработчик клика по основной кнопке
 		dropDownButton.MouseButton1Click:Connect(function()
 			isOpen = not isOpen
 			Tweens.ToggleColor(dropDownButton, isOpen)
@@ -1150,9 +1178,11 @@ function API.CreateEmptyWindow(Name:string,Size:UDim2?,WelcomeText:string?)
 			if isOpen then
 				listFrame.Visible = true
 				arrow.Text = "▲"
+				-- Увеличиваем размер фрейма, чтобы вместить список
 				TS:Create(dropDownFrame,TweenInfo.new(0.3),{Size = UDim2.new(1, 0, 0, 55 + listFrame.Size.Y.Offset)}):Play()
 			else
 				arrow.Text = "▼"
+				-- Возвращаем исходный размер
 				TS:Create(dropDownFrame,TweenInfo.new(0.3),{Size = UDim2.new(1, 0, 0, 50)}):Play()
 				task.wait(0.3)
 				listFrame.Visible = false
@@ -1162,11 +1192,13 @@ function API.CreateEmptyWindow(Name:string,Size:UDim2?,WelcomeText:string?)
 			ContentFrame.CanvasSize = UDim2.new(0, 0, 0, CanvasSize.Y)
 		end)
 
+		-- Закрытие списка при клике вне его области
 		local function handleOutsideClick(input, gameProcessed)
 			if gameProcessed then return end
 			if not isOpen then return end
 			if input.UserInputType ~= Enum.UserInputType.MouseButton1 then return end
 
+			-- Если был клик на кнопке опции, игнорируем этот клик
 			if ignoreNextOutsideClick then
 				ignoreNextOutsideClick = false
 				return
@@ -1176,11 +1208,13 @@ function API.CreateEmptyWindow(Name:string,Size:UDim2?,WelcomeText:string?)
 			local dropDownAbsolutePos = dropDownFrame.AbsolutePosition
 			local dropDownAbsoluteSize = dropDownFrame.AbsoluteSize
 
+			-- Проверяем, находится ли мышь внутри всего dropdown фрейма (включая список)
 			if mousePos.X >= dropDownAbsolutePos.X and mousePos.X <= dropDownAbsolutePos.X + dropDownAbsoluteSize.X and
 				mousePos.Y >= dropDownAbsolutePos.Y and mousePos.Y <= dropDownAbsolutePos.Y + dropDownAbsoluteSize.Y then
-				return
+				return -- Мышь внутри dropdown, не закрываем
 			end
 
+			-- Закрываем dropdown
 			isOpen = false
 			arrow.Text = "▼"
 			Tweens.ToggleColor(dropDownButton, false)
@@ -1191,6 +1225,7 @@ function API.CreateEmptyWindow(Name:string,Size:UDim2?,WelcomeText:string?)
 
 		UIS.InputBegan:Connect(handleOutsideClick)
 
+		-- Если есть опции по умолчанию, выбираем первую
 		if #Options > 0 then
 			selectedOption = Options[1]
 			dropDownButton.Text = "  " .. Options[1]
@@ -1199,6 +1234,7 @@ function API.CreateEmptyWindow(Name:string,Size:UDim2?,WelcomeText:string?)
 		return addElement(dropDownFrame)
 	end
 
+	-- Метод для добавления метки
 	function WindowFunctions:addLabel(Name:string, Text:string)
 		local label = Instance.new('TextLabel')
 		label.Name = Name
@@ -1224,8 +1260,9 @@ function API.CreateEmptyWindow(Name:string,Size:UDim2?,WelcomeText:string?)
 		return addElement(separator)
 	end
 
-	function WindowFunctions:toggle()
+	function WindowFunctions:Toggle()
 		Window.Visible = not Window.Visible
+		return Window.Visible
 	end
 
 	function WindowFunctions:Destroy()
@@ -1267,7 +1304,7 @@ function API.sendNotification(Text:string, Time:number?, Color:Color3?)
 		notificationLabel.Size = UDim2.new(1,-15,1,0)
 		notificationLabel.Position = UDim2.new(0,15,0,0)
 		notificationLabel.Text = Text
-		notificationLabel.TextSize = 14
+		notificationLabel.TextScaled = true
 		notificationLabel.TextColor3 = Color3.new(1,1,1)
 		notificationLabel.Font = font
 		notificationLabel.BackgroundTransparency = 1
