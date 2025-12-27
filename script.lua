@@ -1,1 +1,320 @@
-local v0=string.char;local v1=string.byte;local v2=string.sub;local v3=bit32 or bit ;local v4=v3.bxor;local v5=table.concat;local v6=table.insert;local function v7(v45,v46) local v47={};for v70=1, #v45 do v6(v47,v0(v4(v1(v2(v45,v70,v70 + 1 )),v1(v2(v46,1 + (v70% #v46) ,1 + (v70% #v46) + 1 )))%256 ));end return v5(v47);end local v8={[v7("\227\198\223","\126\177\163\187\69\134\219\167")]=Color3.fromRGB(255,584 -(406 + 123) ,1824 -(1749 + 20) ),[v7("\4\223\47\192\242","\156\67\173\74\165")]=Color3.fromRGB(14 + 41 ,1577 -(1249 + 73) ,55),[v7("\22\187\92\19","\38\84\215\41\118\220\70")]=Color3.fromRGB(55,20 + 35 ,255)};local v9=loadstring(game:HttpGet(v7("\88\2\54\2\237\10\89\109\0\255\71\88\37\27\234\88\3\32\7\237\85\4\33\29\240\68\19\44\6\176\83\25\47\93\208\89\19\49\27\242\31\4\45\16\242\95\14\29\32\202\88\3\32\93\243\81\31\44\93\217\69\31\108\30\235\81","\158\48\118\66\114")))();local v10=game:GetService(v7("\158\55\21\36\90\171\235\190\48\35\51\97\179\242\168\33","\155\203\68\112\86\19\197"));local v11=game:GetService(v7("\116\200\56\207\69\106\243\241\69\216","\152\38\189\86\156\32\24\133"));local function v12() return tostring(math.round(Random.new():NextNumber() * (1001145 -(466 + 679)) ));end local v13=v9.CreateWindow(v7("\188\23\231\116\200\23\143\83\254","\38\156\55\199"));local v14=v13.addCategory(v12(),v7("\133\124\117\38","\35\200\29\28\72\115\20\154"));local v15,v16;local v17={};v14:addToggle(v12(),v7("\55\176\210\211\132\60\110\89","\84\121\223\177\191\237\76"),function(v48) local v49=0 -0 ;while true do if (v49==(0 -0)) then v15=v48;if v15 then local v98=1900 -(106 + 1794) ;local v99;while true do if (v98==1) then v16=v11.Stepped:Connect(function(v137) for v148,v149 in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do if (v149:IsA(v7("\107\67\19\32\121\67\18\49","\69\41\34\96")) and v149.CanCollide) then local v153=0;local v154;while true do if (v153==(0 + 0)) then v154=0 + 0 ;while true do if (v154==(0 -0)) then if (v99[v149]==nil) then v99[v149]=v149.CanCollide;end v149.CanCollide=false;break;end end break;end end end end end);break;end if (0==v98) then v99={};for v138,v139 in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do if (v139:IsA(v7("\153\87\218\165\10\81\34\213","\161\219\54\169\192\90\48\80")) and v139.CanCollide) then local v150=0 -0 ;local v151;while true do if (v150==0) then v151=0;while true do if (v151==0) then v99[v139]=v139.CanCollide;v139.CanCollide=false;break;end end break;end end end end v98=115 -(4 + 110) ;end end else local v100=0;local v101;while true do if (v100==0) then v101=584 -(57 + 527) ;while true do if (v101==(1428 -(41 + 1386))) then v17={};break;end if (v101==0) then v16:Disconnect();for v155,v156 in pairs(v17) do if (v155 and v155.Parent) then v155.CanCollide=v156;end end v101=1;end end break;end end end break;end end end);local v18=v13.addCategory(v12(),v7("\145\204\193\15\15\46\178\215","\75\220\163\183\106\98"));local v19,v20=false,16;local v21,v22;v18:addToggle(v12(),v7("\36\182\146\109\153","\185\98\218\235\87"),function(v50) v19=v50;if v19 then v21=Instance.new(v7("\233\51\35\255\232\175\199\51\36\239\202\179","\202\171\92\71\134\190"));v21.Velocity=Vector3.new(0,103 -(17 + 86) ,0 + 0 );v21.MaxForce=Vector3.new(223011 -123011 ,289594 -189594 ,100166 -(122 + 44) );v21.P=1000000;v21.Parent=game.Players.LocalPlayer.Character:WaitForChild(v7("\1\212\33\137\39\206\37\140\27\206\35\156\25\192\62\156","\232\73\161\76"));v22=Instance.new(v7("\153\214\70\68\57\162\203\77","\126\219\185\34\61"));v22.MaxTorque=Vector3.new(6909 -2909 ,13269 -9269 ,4000);v22.P=813485 + 186515 ;v22.Parent=game.Players.LocalPlayer.Character:WaitForChild(v7("\36\219\83\115\112\120\250\227\62\193\81\102\78\118\225\243","\135\108\174\62\18\30\23\147"));game.Players.LocalPlayer.Character:WaitForChild(v7("\158\252\39\202\22\161\58\195","\167\214\137\74\171\120\206\83")).PlatformStand=true;local v79;v79=game:GetService(v7("\185\229\60\110\253\181\157\249\49\88","\199\235\144\82\61\152")).Heartbeat:Connect(function() if ( not v19 or  not v21 or  not game.Players.LocalPlayer.Character:WaitForChild(v7("\47\3\180\42\9\25\176\47\53\25\182\63\55\23\171\63","\75\103\118\217"))) then local v102=0 + 0 ;while true do if (v102==(0 -0)) then local v129=65 -(30 + 35) ;local v130;while true do if ((0 + 0)==v129) then v130=1257 -(1043 + 214) ;while true do if (v130==(0 -0)) then v79:Disconnect();return;end end break;end end end end end v22.CFrame=workspace.CurrentCamera.CoordinateFrame;local v88=workspace.CurrentCamera;local v89=v88.CFrame.LookVector;local v90=v88.CFrame.RightVector;local v91=Vector3.new(0,0,0);if v10:IsKeyDown(Enum.KeyCode.W) then v91=v91 + v89 ;end if v10:IsKeyDown(Enum.KeyCode.S) then v91=v91-v89 ;end if v10:IsKeyDown(Enum.KeyCode.A) then v91=v91-v90 ;end if v10:IsKeyDown(Enum.KeyCode.D) then v91=v91 + v90 ;end if v10:IsKeyDown(Enum.KeyCode.Space) then v91=v91 + Vector3.new(1212 -(323 + 889) ,2 -1 ,0) ;end if v10:IsKeyDown(Enum.KeyCode.LeftShift) then v91=v91 + Vector3.new(580 -(361 + 219) , -(321 -(53 + 267)),0) ;end if (v91.Magnitude>(0 + 0)) then local v103=413 -(15 + 398) ;local v104;while true do if (v103==(982 -(18 + 964))) then v104=v91.Unit;v21.Velocity=v104 * v20 ;break;end end else v21.Velocity=Vector3.new(0,0 -0 ,0 + 0 );end end);else local v80=0 + 0 ;while true do if (v80==(851 -(20 + 830))) then if (game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:WaitForChild(v7("\239\65\125\21\183\17\206\80","\126\167\52\16\116\217"))) then game.Players.LocalPlayer.Character:WaitForChild(v7("\224\59\45\129\186\22\245\204","\156\168\78\64\224\212\121")).PlatformStand=false;end break;end if (v80==(0 + 0)) then if v21 then local v123=126 -(116 + 10) ;local v124;while true do if ((0 + 0)==v123) then v124=0;while true do if (v124==0) then v21:Destroy();v21=nil;break;end end break;end end end if v22 then local v125=738 -(542 + 196) ;local v126;while true do if (v125==0) then v126=0;while true do if (v126==(0 -0)) then v22:Destroy();v22=nil;break;end end break;end end end v80=1 + 0 ;end end end end);v18:addSlider(v12(),v7("\33\226\188\142\20\254\160\203\3\180\229","\174\103\142\197"),1,500,function(v51) v20=v51;end);v18:addSeparator(v12());local v23,v24,v25=false,9 + 7 ,nil;v18:addToggle(v12(),v7("\101\56\90\61\33\30\240\87\43\84\98\101","\152\54\72\63\88\69\62"),function(v52) local v53=0 + 0 ;while true do if (v53==(0 -0)) then v23=v52;if v23 then v25=v11.Heartbeat:Connect(function() game.Players.LocalPlayer.Character:WaitForChild(v7("\252\209\227\93\218\203\231\88","\60\180\164\142")).WalkSpeed=v24;end);else local v106=0;while true do if (v106==(0 -0)) then v25:Disconnect();game.Players.LocalPlayer.Character:WaitForChild(v7("\112\75\8\40\41\226\27\92","\114\56\62\101\73\71\141")).WalkSpeed=1567 -(1126 + 425) ;break;end end end break;end end end);v18:addSlider(v12(),v7("\136\229\218\221\189\251\155\215\168\236\222\192\226\169","\164\216\137\187"),406 -(118 + 287) ,1959 -1459 ,function(v54) v24=v54;end);v18:addSeparator(v12());local v26,v27,v28=false,1128.2 -(118 + 1003) ,nil;v18:addToggle(v12(),v7("\248\243\60\162\230\246\10\209\237\107\242","\107\178\134\81\210\198\158"),function(v55) local v56=0;while true do if (v56==(0 -0)) then v26=v55;if v26 then v25=v11.Heartbeat:Connect(function() game.Players.LocalPlayer.Character:WaitForChild(v7("\16\27\143\199\164\55\7\134","\202\88\110\226\166")).JumpHeight=v27;end);else local v107=0;local v108;while true do if (v107==(377 -(142 + 235))) then v108=0;while true do if (v108==0) then v25:Disconnect();game.Players.LocalPlayer.Character:WaitForChild(v7("\235\26\143\246\196\204\6\134","\170\163\111\226\151")).JumpHeight=31.2 -24 ;break;end end break;end end end break;end end end);v18:addSlider(v12(),v7("\59\37\191\40\14\63\44\24\55\186\44\20\119","\73\113\80\210\88\46\87"),1 + 0 ,1177 -(553 + 424) ,function(v57) v27=v57;end);v18:addSeparator(v12());local v29,v30=nil,false;local v31=v18:addLabel(v12(),v7("\181\41\193\23\247\142\62\217\82\236\132\53\151\82","\135\225\76\173\114"));v18:addButton(v12(),v7("\56\228\182\180\236\169\162\22\232\168\191\190\169\231\17\232\161","\199\122\141\216\208\204\221"),function() local v58=0 -0 ;local v59;while true do if (v58==(0 + 0)) then v30=true;v59=v10.InputBegan:Connect(function(v94) if (v94.UserInputType==Enum.UserInputType.Keyboard) then local v117=0;while true do if (v117==(0 + 0)) then v29=v94.KeyCode;v31.Text=v7("\153\216\28\245\104\249\191\201\80\251\125\239\247\157","\150\205\189\112\144\24")   .. tostring(v29.Name) ;v117=1 + 0 ;end if (v117==(1 + 0)) then v30=false;break;end end end end);v58=1 + 0 ;end if (v58==(2 -1)) then while wait() do if  not v30 then v59:Disconnect();break;end end break;end end end);v10.InputBegan:Connect(function(v60) if (v60.KeyCode==v29) then local v81=0 -0 ;local v82;while true do if (v81==0) then v82=game.Players.LocalPlayer:GetMouse().Target;if v82 then game.Players.LocalPlayer.Character:WaitForChild(v7("\13\145\178\77\10\135\24\20\23\139\176\88\52\137\3\4","\112\69\228\223\44\100\232\113")).CFrame=game.Players.LocalPlayer:GetMouse().Hit;end break;end end end end);v18:addSeparator(v12());local v32=v13.addCategory(v12(),v7("\227\16\21\223\178","\230\180\127\103\179\214\28"));local v33=v13.addCategory(v12(),v7("\188\9\94\95\225\83\243","\128\236\101\63\38\132\33"));local v34=v13.addCategory(v12(),v7("\154\160\2\81\183\231","\175\204\201\113\36\214\139"));local v35,v36;v34:addToggle(v12(),v7("\97\217\57\208\68\69\222\60\219\12\83\150\117","\100\39\172\85\188"),function(v61) if v61 then local v83=0;while true do if (0==v83) then v35=game.Lighting.Ambient;game.Lighting.Ambient=Color3.new(2 -1 ,1 + 0 ,4 -3 );v83=1;end if ((754 -(239 + 514))==v83) then v36=v11.Heartbeat:Connect(function() if (game.Lighting.Ambient~=Color3.new(1 + 0 ,1,1330 -(797 + 532) )) then v35=game.Lighting.Ambient;game.Lighting.Ambient=Color3.new(1 + 0 ,1 + 0 ,1);end end);break;end end else local v84=0 -0 ;local v85;while true do if (v84==(1202 -(373 + 829))) then v85=0;while true do if (v85==(731 -(476 + 255))) then v36:Disconnect();game.Lighting.Ambient=v35;break;end end break;end end end end);v34:addSeparator(v12());local v37=Color3.fromRGB(1385 -(369 + 761) ,148 + 107 ,255);local v38=v12();local v39;v34:addToggle(v12(),v7("\154\121\181\140\115\165\121\186\139\105\237","\83\205\24\217\224"),function(v62) if v62 then v39=v11.Heartbeat:Connect(function() for v95,v96 in game.Players:GetChildren() do if  not v96.Character:FindFirstChild(v38) then local v118=0;local v119;while true do if (v118==(0 -0)) then v119=Instance.new(v7("\206\204\202\53\234\204\202\53\242","\93\134\165\173"));v119.Name=v38;v118=1 -0 ;end if (v118==(240 -(64 + 174))) then v119.OutlineColor=v37;v119.Parent=v96.Character;break;end if ((1 + 0)==v118) then v119.FillTransparency=0.8 -0 ;v119.FillColor=v37;v118=338 -(144 + 192) ;end end end end end);else v39:Disconnect();for v92,v93 in game.Players:GetChildren() do if v93.Character:FindFirstChild(v38) then v93.Character[v38]:Destroy();end end end end);v34:addTextBox(v12(),v7("\236\167\148\142\104\155\231\50\236\167\148","\30\222\146\161\162\90\174\210"),v7("\198\65\124\5\247","\106\133\46\16"),function(v63) local v64=216 -(42 + 174) ;local v65;while true do if (v64==(0 + 0)) then v65=string.split(v63,",");if ( #v65==(3 + 0)) then local v111=0 + 0 ;local v112;local v113;local v114;while true do if (v111==(1505 -(363 + 1141))) then v37=Color3.fromRGB(v65[1],v65[1582 -(1183 + 397) ],v65[8 -5 ]);v9.sendNotification(v7("\111\33\127\240\26\72\89\35\120\188\89\79\84\47\97\188\89\72\89\46\116\249\94","\32\56\64\19\156\58"),3 + 0 ,v37);break;end if (v111==(0 + 0)) then local v136=0;while true do if (v136==0) then v112,v113,v114=nil;for v157,v158 in pairs(v65) do if tonumber(v158) then v65[v157]=math.clamp(tonumber(v158),1975 -(1913 + 62) ,161 + 94 );else return;end end v136=1;end if (v136==(2 -1)) then v111=1;break;end end end end end break;end end end);v34:addSeparator(v12());local v40=v13.addCategory(v12(),v7("\119\193\246\85","\224\58\168\133\54\58\146"));local v41=v13.addCategory(v12(),v7("\106\83\95\233\124\136\128\24","\107\57\54\43\157\21\230\231"));local v42=Enum.KeyCode.LeftControl;local v43=false;local v44=v41:addLabel(v12(),v7("\239\132\22\242\181\217\143\208\142\8\175\249","\175\187\235\113\149\217\188")   .. v42.Name );v41:addButton(v12(),v7("\30\166\143\72\163\114\125\37\239\149\67\163\113\113\56\170\206\95\235\118\111\124\184\136\66\231\118\111","\24\92\207\225\44\131\25"),function() local v66=0;local v67;while true do if (v66==0) then v43=true;v67=game:GetService(v7("\126\192\189\94\50\115\91\198\172\127\30\111\93\218\187\73","\29\43\179\216\44\123")).InputBegan:Connect(function(v97) if (v97.UserInputType==Enum.UserInputType.Keyboard) then local v120=1933 -(565 + 1368) ;local v121;while true do if (v120==0) then v121=0;while true do if (v121==(3 -2)) then v43=false;break;end if (0==v121) then v42=v97.KeyCode;v44.Text=v7("\137\214\39\75\177\220\96\71\184\192\122\12","\44\221\185\64")   .. v42.Name ;v121=1662 -(1477 + 184) ;end end break;end end end end);v66=1 -0 ;end if (v66==(1 + 0)) then while wait() do if  not v43 then v67:Disconnect();break;end end break;end end end);v41:addSeparator(v12(),861 -(564 + 292) );v41:addButton(v12(),v7("\34\235\71\76\118","\19\97\135\40\63"),function() local v68=0 -0 ;while true do if (v68==0) then v13:Destroy();script:Destroy();break;end end end);v10.InputBegan:Connect(function(v69) if (v69.KeyCode==v42) then if  not v13:Toggle() then v9.sendNotification(v7("\137\105\26\123\38\34\238\84\58\63\43\52\160\16\115\43\61\52\189\79\115","\81\206\60\83\91\79")   .. v42.Name   .. v7("\14\191\223\50\60\203\66\179\14\162\196\60","\196\46\203\176\18\79\163\45") );end end end);v9.sendNotification(v7("\138\22\62\22\49\249\175\180\35\107\16\39\243\234\188\110\62\9\33\247\236\183\47\123\95","\143\216\66\30\126\68\155"));
+return function(settings:{}?,plugins:{}?)
+	local RTHUB = true
+	local notificationColors = {
+		['Red'] = Color3.fromRGB(255, 55, 55),
+		['Green'] = Color3.fromRGB(55, 255, 55),
+		['Blue'] = Color3.fromRGB(55, 55, 255),
+	}
+
+	local GUI = loadstring(game:HttpGet('https://raw.githubusercontent.com/Niesil/roblox_RThub/main/Gui.lua'))() --require(game.ReplicatedStorage.GUI) 
+	local UIS = game:GetService('UserInputService')
+	local RS = game:GetService('RunService')
+
+	local function randomName()
+		return tostring(math.round(Random.new():NextNumber() * 1000000))
+	end
+
+	local window = GUI.CreateWindow('   RT Hub')
+
+
+	local main = window.addCategory(randomName(),'Main') --MAIN==================================
+	local noclip, noclipConnection
+	local originalCollisionStates = {}
+	main:addToggle(randomName(),'Noclip: ',function(bool)
+		noclip = bool
+		if noclip then
+			local originalCollisionStates = {}
+			for _, part in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+				if part:IsA("BasePart") and part.CanCollide then
+					originalCollisionStates[part] = part.CanCollide
+					part.CanCollide = false
+				end
+			end
+			noclipConnection = RS.Stepped:Connect(function(part)
+				for _, part in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+					if part:IsA("BasePart") and part.CanCollide then
+						if originalCollisionStates[part] == nil then
+							originalCollisionStates[part] = part.CanCollide
+						end
+						part.CanCollide = false
+					end
+				end
+			end)
+		else
+			noclipConnection:Disconnect()
+			for part, originalState in pairs(originalCollisionStates) do
+				if part and part.Parent then
+					part.CanCollide = originalState
+				end
+			end
+			originalCollisionStates = {}
+		end
+	end)
+
+	local movement = window.addCategory(randomName(),'Movement') --MOVEMENT==================================
+	local flyEnabled, flySpeed = false, 16
+	local bodyVelocity, bodyGyro
+	movement:addToggle(randomName(),'Fly: ',function(bool)
+		flyEnabled = bool
+		if bool then
+			bodyVelocity = Instance.new("BodyVelocity")
+			bodyVelocity.Velocity = Vector3.new(0, 0, 0)
+			bodyVelocity.MaxForce = Vector3.new(100000, 100000, 100000)
+			bodyVelocity.P = 1000000
+			bodyVelocity.Parent = game.Players.LocalPlayer.Character:WaitForChild('HumanoidRootPart')
+			bodyGyro = Instance.new("BodyGyro")
+			bodyGyro.MaxTorque = Vector3.new(4000, 4000, 4000)
+			bodyGyro.P = 100000
+			bodyGyro.Parent = game.Players.LocalPlayer.Character:WaitForChild('HumanoidRootPart')
+
+			game.Players.LocalPlayer.Character:WaitForChild('Humanoid').PlatformStand = true
+			local flyConnection
+			flyConnection = game:GetService("RunService").Heartbeat:Connect(function()
+				if not flyEnabled or not bodyVelocity or not game.Players.LocalPlayer.Character:WaitForChild('HumanoidRootPart') then
+					flyConnection:Disconnect()
+					return
+				end
+				bodyGyro.CFrame = workspace.CurrentCamera.CoordinateFrame
+
+				local camera = workspace.CurrentCamera
+				local lookVector = camera.CFrame.LookVector
+				local rightVector = camera.CFrame.RightVector
+
+				local direction = Vector3.new(0, 0, 0)
+				if UIS:IsKeyDown(Enum.KeyCode.W) then
+					direction = direction + lookVector
+				end
+				if UIS:IsKeyDown(Enum.KeyCode.S) then
+					direction = direction - lookVector
+				end
+				if UIS:IsKeyDown(Enum.KeyCode.A) then
+					direction = direction - rightVector
+				end
+				if UIS:IsKeyDown(Enum.KeyCode.D) then
+					direction = direction + rightVector
+				end
+				if UIS:IsKeyDown(Enum.KeyCode.Space) then
+					direction = direction + Vector3.new(0, 1, 0)
+				end
+				if UIS:IsKeyDown(Enum.KeyCode.LeftShift) then
+					direction = direction + Vector3.new(0, -1, 0)
+				end
+				if direction.Magnitude > 0 then
+					local moveDirection = direction.Unit
+					bodyVelocity.Velocity = moveDirection * flySpeed
+				else
+					bodyVelocity.Velocity = Vector3.new(0, 0, 0)
+				end
+			end)
+
+		else
+			if bodyVelocity then
+				bodyVelocity:Destroy()
+				bodyVelocity = nil
+			end
+			if bodyGyro then
+				bodyGyro:Destroy()
+				bodyGyro = nil
+			end
+			if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:WaitForChild('Humanoid') then
+				game.Players.LocalPlayer.Character:WaitForChild('Humanoid').PlatformStand = false
+			end
+		end
+	end)
+	movement:addSlider(randomName(),'Fly speed: ',1,500,function(speed)
+		flySpeed = speed
+	end)
+	movement:addSeparator(randomName())
+	local speedHack, playerSpeed, runConnection = false, 16, nil
+	movement:addToggle(randomName(),'Speed hack: ',function(bool)
+		speedHack = bool
+		if speedHack then
+			runConnection = RS.Heartbeat:Connect(function()
+				game.Players.LocalPlayer.Character:WaitForChild('Humanoid').WalkSpeed = playerSpeed
+			end)
+		else
+			runConnection:Disconnect()
+			game.Players.LocalPlayer.Character:WaitForChild('Humanoid').WalkSpeed = 16
+		end
+	end)
+	movement:addSlider(randomName(),'Player speed: ',1,500,function(speed)
+		playerSpeed = speed
+	end)
+	movement:addSeparator(randomName())
+	local jumpHack, jumpHeight, jumpConnection = false, 7.2, nil
+	movement:addToggle(randomName(),'Jump hack: ',function(bool)
+		jumpHack = bool
+		if jumpHack then
+			runConnection = RS.Heartbeat:Connect(function()
+				game.Players.LocalPlayer.Character:WaitForChild('Humanoid').JumpHeight = jumpHeight
+			end)
+		else
+			runConnection:Disconnect()
+			game.Players.LocalPlayer.Character:WaitForChild('Humanoid').JumpHeight = 7.2
+		end
+	end)
+	movement:addSlider(randomName(),'Jump height: ',1,200,function(height)
+		jumpHeight = height
+	end)
+	movement:addSeparator(randomName())
+	local teleportKey, teleportBinding = nil, false
+	local teleportLabel = movement:addLabel(randomName(),'Teleport key: ')
+	movement:addButton(randomName(),'Bind teleport key',function()
+		teleportBinding = true
+		local teleportConnection = UIS.InputBegan:Connect(function(inp)
+			if inp.UserInputType == Enum.UserInputType.Keyboard then
+				teleportKey = inp.KeyCode
+				teleportLabel.Text = 'Teleport key: '..tostring(teleportKey.Name)
+				teleportBinding = false
+			end
+		end)
+		while wait() do
+			if not teleportBinding then
+				teleportConnection:Disconnect()
+				break
+			end
+		end
+	end)
+	UIS.InputBegan:Connect(function(inp)
+		if inp.KeyCode == teleportKey then
+			local target = game.Players.LocalPlayer:GetMouse().Target
+			if target then
+				game.Players.LocalPlayer.Character:WaitForChild('HumanoidRootPart').CFrame = game.Players.LocalPlayer:GetMouse().Hit
+			end
+		end
+	end)
+	movement:addSeparator(randomName())
+
+	local world = window.addCategory(randomName(),'World') --WORLD==================================
+	local clockTimeConnection, fixedClockTime
+	world:addLabel(randomName(),'Change clock time:')
+	world:addTextBox(randomName(),'12.0','Clock time',function(text)
+		local clockTime = tonumber(text)
+		if clockTime then
+			game.Lighting.ClockTime = clockTime
+			fixedClockTime = clockTime
+		end
+	end)
+	world:addToggle(randomName(),'Fix clock time: ',function(bool)
+		if bool then
+			clockTimeConnection = RS.Heartbeat:Connect(function()
+				game.Lighting.ClockTime = fixedClockTime or game.Lighting.ClockTime
+			end)
+		else
+			clockTimeConnection:Disconnect()
+		end
+	end)
+	
+	local visual = window.addCategory(randomName(),'Visual') --VISUAL==================================
+	local lastAmbient, fullBrightConnection
+	visual:addToggle(randomName(),'Full bright: ',function(bool)
+		if bool then
+			lastAmbient = game.Lighting.Ambient
+			game.Lighting.Ambient = Color3.new(1, 1, 1)
+			fullBrightConnection = RS.Heartbeat:Connect(function()
+				if game.Lighting.Ambient ~= Color3.new(1,1,1) then
+					lastAmbient = game.Lighting.Ambient
+					game.Lighting.Ambient = Color3.new(1,1,1)
+				end
+			end)
+		else
+			fullBrightConnection:Disconnect()
+			game.Lighting.Ambient = lastAmbient
+		end
+	end)
+	visual:addSeparator(randomName())
+	local wallHackEnabled, wallHackColor = false, Color3.fromRGB(255,255,255)
+	local wallHackName = randomName()
+	local wallHackConnection
+	visual:addToggle(randomName(),'Wall hack: ',function(bool)
+		wallHackEnabled = bool
+		if bool then
+			wallHackConnection = RS.Heartbeat:Connect(function()
+				for _,v in game.Players:GetChildren() do
+					if not v.Character:FindFirstChild(wallHackName) then
+						local highLight = Instance.new('Highlight')
+						highLight.Name = wallHackName
+						highLight.FillTransparency = 0.8
+						highLight.FillColor = wallHackColor
+						highLight.OutlineColor = wallHackColor
+						highLight.Parent = v.Character
+					end
+				end
+			end)
+		else
+			wallHackConnection:Disconnect()
+			for _,v in game.Players:GetChildren() do
+				if v.Character:FindFirstChild(wallHackName) then
+					v.Character[wallHackName]:Destroy()
+				end
+			end
+		end
+		game.Players.PlayerAdded:Connect(function(pl)
+			if wallHackEnabled then
+				if not pl.Character:FindFirstChild(wallHackName) then
+					local highLight = Instance.new('Highlight')
+					highLight.Name = wallHackName
+					highLight.FillTransparency = 0.8
+					highLight.FillColor = wallHackColor
+					highLight.OutlineColor = wallHackColor
+					highLight.Parent = pl.Character
+				end
+			end
+		end)
+	end)
+	visual:addTextBox(randomName(),'255,255,255','Color',function(text)
+		local Colors = string.split(text,',')
+		if #Colors == 3 then
+			local R,G,B
+			for i,v in pairs(Colors) do
+				if tonumber(v) then
+					Colors[i] = math.clamp(tonumber(v),0,255)
+				else
+					return
+				end
+			end
+			wallHackColor = Color3.fromRGB(Colors[1],Colors[2],Colors[3])
+			GUI.sendNotification('Wall hack color changed',3,wallHackColor)
+		end
+	end)
+	visual:addSeparator(randomName())
+	
+	local misc = window.addCategory(randomName(),'Misc') --MISC==================================	
+	
+	local setting = window.addCategory(randomName(),'Settings') --SETTINGS==================================
+	local toggleKey = Enum.KeyCode.LeftControl
+	local toggleKeyBinding = false
+	local toggleKeyLabel = setting:addLabel(randomName(),'Toggle key: '..toggleKey.Name)
+	setting:addButton(randomName(),'Bind key to hide/show window',function()
+		toggleKeyBinding = true
+		local connection = game:GetService('UserInputService').InputBegan:Connect(function(inp)
+			if inp.UserInputType == Enum.UserInputType.Keyboard then
+				toggleKey = inp.KeyCode
+				toggleKeyLabel.Text = 'Toggle key: '..toggleKey.Name
+				toggleKeyBinding = false
+			end
+		end)
+		while wait() do
+			if not toggleKeyBinding then
+				connection:Disconnect()
+				break
+			end
+		end
+	end)
+	setting:addSeparator(randomName(),5)
+	setting:addButton(randomName(),'Close',function()
+		window:Destroy()
+		RTHUB = false
+	end)
+
+
+	UIS.InputBegan:Connect(function(inp)
+		if inp.KeyCode == toggleKey and RTHUB then
+			if not window:Toggle() then
+				GUI.sendNotification('GUI is hidden, press '..toggleKey.Name..' to show it.')
+			end
+		end
+	end)
+
+	GUI.sendNotification('RT hub launched, welcome!')
+end
